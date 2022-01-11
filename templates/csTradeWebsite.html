@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSGO Trade Help</title>
+    <!link rel=“shortcut icon” href=favicon.ico type=“image/x-icon”/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='csTradeWebsite.css') }}">
+</head>
+<body>
+    <script src="{{ url_for('static',filename='csTradeWebsite.js') }}"></script>
+    <div id = 'container' class = 'container'>
+        <div id = 'content' class = 'container'>
+            <div id = 'filters' class = 'container'>
+                <form name = 'filterform' id = 'filterform' onload="filter(this)" onsubmit= 'filter(this)'>
+                    <div id = filteritems>
+                        <div class = filtercontainer>
+                            <label class = filterlabel>Buy From</label></br>
+                            <select id = 'from' class = 'dropdown'>
+                                <option value = 'swap.gg'>swap.gg</option>
+                                <option value = 'loot.farm'>loot.farm</option>
+                                <option value = 'csgoexo.com'>csgoexo.com</option>
+                                <option value = 'tradeit.gg'>tradeit.gg</option>
+                        </select>
+                        </div>
+                        <div class = 'filtercontainerSmall'>
+                            <button onclick = 'window.open(("https:////" + document.getElementById("from").options[document.getElementById("from").selectedIndex].text), "_blank");' class = 'visitSite' type="button">Visit<br>Site</button>
+                        </div>
+                        <div class = 'filtercontainer'>
+                            <label class = filterlabel>Sell To</label></br>
+                            <select id = 'to' class = 'dropdown'>
+                                <option value = 'loot.farm'>loot.farm</option>
+                                <option value = 'swap.gg'>swap.gg</option>
+                                <option value = 'csgoexo.com'>csgoexo.com</option>
+                                <option value = 'tradeit.gg'>tradeit.gg</option>
+                            </select>
+                        </div>
+                        <div class = 'filtercontainerSmall'>
+                            <button onclick = 'window.open(("https:////" + document.getElementById("to").options[document.getElementById("to").selectedIndex].text), "_blank");' class = 'visitSite' type="button">Visit<br>Site</button>
+                        </div>
+                        <div class = 'filtercontainer'>
+                            <label class = filterlabel>Min Price</label>
+                            <input type='text' id = 'min' value="0.00" class = 'moneyinput' onclick = 'this.select()'>
+                        </div>
+                        <div class = 'filtercontainer'>
+                            <label class = filterlabel>Max Price</label>
+                            <input type="text" id = "max" value = "99999.99" class = 'moneyinput' onclick = 'this.select()'>
+                        </div>
+                        <div class = 'filtercontainer'>
+                            <input type = 'submit' id = filtersubmit class = filterlabel>
+                        </div>
+                    </div>
+                </form>
+                <div id = 'sortitems'>
+                    <div class = 'sortcontainer' id = 'searchnames'>
+                        <input type = 'text' id = 'searchbox' placeholder="search names" onkeyup="searchData()">
+                    </div>
+                    <button class = 'sortcontainerbutton' id = buyprice onclick="sortbuyprice()">
+                        <p1 class = sortlabel>buy price</h1>
+                        <i class = sortrectangle id = buytriangle></i>
+                    </button>
+                    <button class = 'sortcontainerbutton' id = sellprice onclick="sortsellprice()">
+                        <p1 class = sortlabel>sell price</h1>
+                        <i class = sortrectangle id = selltriangle></i>
+                        </button>
+                    <button class = 'sortcontainerbutton' id = 'percent' onclick="sortpercent()">
+                        <p1 class = sortlabel>% difference</p1>
+                        <i class = sortrectangle id = percenttriangle></i>
+                        </button>
+                </div>
+            </div>
+            <div id ='items' class = 'container'>
+                <table id = datatable>
+                    <tr>
+                        <td id = namecell>Row1 cell1</td>
+                        <td class = infocell>Row1 cell1</td>
+                        <td class = infocell>Row1 cell1</td>
+                        <td class = infocell>Row1 cell1</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
