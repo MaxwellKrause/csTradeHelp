@@ -1,0 +1,1 @@
+A project which uses selenium and requests for python to scrape data from various CSGO trading websites and calculates profitable trades between the sites. This data is then sent to clients through a flask server and rendered in table format factoring in the given filters and search parameters. 
